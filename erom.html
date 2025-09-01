@@ -25,6 +25,7 @@
                 gap: 100px;
                 margin-left: 200px;
                 font-size: 18px;
+                cursor: pointer;
             }
             .submenuIcon{
                 width: 10%;
@@ -35,6 +36,36 @@
                 align-items: center;
                 margin-left: 200px;
             }
+
+            .sub2Container{
+                display: flex;
+                position: relative;
+                gap: 10px;
+            }
+            .sub2Box{
+                width: 10%;
+                z-index: 10;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+                border-radius: 10px;
+                position: absolute;
+                transition: all 0.5s linear;
+                opacity: 0;
+                background-color: #FFF;
+                padding: 10px 0;
+                padding-top: 50px;
+                cursor: pointer;
+            }
+            .sub2Box.on{ opacity: 1;}
+
+            .sub2Box1{ top: -40px; left: 430px;}
+            .sub2Box2{ top: -40px; left: 600px;}
+            .sub2Box3{ top: -40px; left: 740px;}
+            .sub2Box4{ top: -40px; left: 910px;}
+            .sub2Box5{ top: -40px; left: 1100px;}
+            .sub2Box6{ top: -40px; left: 1260px;}
 
         /* 서브메뉴 */
         .submenuBox{
@@ -679,15 +710,50 @@
             <img src="./img/eromlogo.png" alt="로고" />
         </div>
         <div class="menus">
-            <div>이롬그룹</div>
-            <div>사업분야</div>
-            <div>이롬</div>
-            <div>이롬헬스케어</div>
-            <div>뉴스&홍보</div>
-            <div>이롬人</div>
+            <div class="nav nav1">이롬그룹</div>
+            <div class="nav nav2">사업분야</div>
+            <div class="nav nav3">이롬</div>
+            <div class="nav nav4">이롬헬스케어</div>
+            <div class="nav nav5">뉴스&홍보</div>
+            <div class="nav nav6">이롬人</div>
         </div>
         <div class="submenuIcon" onclick="submenu()"><i class="fa-solid fa-bars"></i></div>
     </nav>
+
+    <div class="sub2Container">
+        <div class="sub2Box sub2Box1">
+            <div>이롬 그룹</div>
+            <div>황성주박사</div>
+            <div>브랜드 아이덴티티</div>
+            <div>Contact US</div>
+        </div>
+        <div class="sub2Box sub2Box2">
+            <div>BUSINESS</div>
+            <div>GLOBAL</div>
+            <div>BIO&HUMAN</div>
+            <div>EDUCATION</div>
+        </div>
+        <div class="sub2Box sub2Box3">
+            <div>두유</div>
+            <div>색신.영양식</div>
+            <div>주스.음료</div>
+            <div>건강.영양</div>
+        </div>
+        <div class="sub2Box sub2Box4">
+            <div>생식&면역</div>
+            <div>두유.음료</div>
+            <div>건강기능/지향식품</div>
+            <div>뷰티&리빙</div>
+            <div>의료기기</div>
+        </div>
+        <div class="sub2Box sub2Box5">
+            <div>이롬소식</div>
+            <div>미디어센터</div>
+        </div>
+        <div class="sub2Box sub2Box6">
+            <div>이롬人</div>
+        </div>
+    </div>
 
     <section id="sec1">
         <div class="inBox">
@@ -903,6 +969,34 @@
             show()
             clearInterval(set)
         }
+
+        let nav1 = document.querySelector('.nav1')
+        let nav2 = document.querySelector('.nav2')
+        let nav3 = document.querySelector('.nav3')
+        let nav4 = document.querySelector('.nav4')
+        let nav5 = document.querySelector('.nav5')
+        let nav6 = document.querySelector('.nav6')
+
+        let navs = document.querySelectorAll('.nav')
+        let sub2Boxs = document.querySelectorAll('.sub2Box')
+
+        navs.forEach( (item, idx)=>{
+            item.addEventListener("mouseenter", ()=>{
+                sub2Boxs[idx].classList.add('on')
+            })
+            item.addEventListener("mouseleave", ()=>{
+                sub2Boxs[idx].classList.remove('on')
+            })
+        })
+
+        sub2Boxs.forEach( (item)=>{
+            item.addEventListener("mouseenter",()=>{
+                item.classList.add('on')
+            })
+            item.addEventListener("mouseleave",()=>{
+                item.classList.remove('on')
+            })
+        })
 
         let sec2 = document.getElementById('sec2')
         let sec3 = document.getElementById('sec3')
