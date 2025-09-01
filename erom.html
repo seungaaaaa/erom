@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        *{ padding: 0; margin: 0; list-style: none; text-decoration: none; }
+        body{ width: 100vw; overflow-x: hidden;}
+
+        nav{
+            width: 100%;
+            height: 100px;
+            display: flex;
+        }
+            .logo{
+                padding: 25px 0 0 140px;
+            }
+            .menus{
+                width: 1000px;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                gap: 100px;
+                margin-left: 200px;
+                font-size: 18px;
+            }
+            .submenuIcon{
+                width: 10%;
+                height: 100%;
+                font-size: 30px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-left: 200px;
+            }
+
+        /* 서브메뉴 */
+        .submenuBox{
+            width: 100%;
+            height: 0;
+            background-color:#096C5C ;
+            color: white;
+            transition: all 0.3s linear;
+            overflow: hidden;
+        }
+        .submenuBox.on{
+            height: 100vh;
+        }
+            .subNav{
+                width: 100%;
+                height: 100px;
+                display: flex;
+                position: relative;
+            }
+                .logo2{
+                    padding: 25px 0 0 140px;
+                }
+                .xBtn{
+                    position: absolute;
+                    top: 50%; right: 150px;
+                    transform: translateY(-50%);
+                    font-size: 50px;
+                }
+            .subSection{
+                width: 100%;
+                height: calc(100% - 100px);
+            }
+                .subinBox{
+                    width: 90%;
+                    height: 550px;
+                    margin: 0 auto;
+                    display: flex;
+                }
+                    .sub6Box{
+                        width: 17%;
+                        height: 100%;
+                    }
+                        .h{
+                            font-size: 25px;
+                            font-weight: bold;
+                            padding: 200px 0 30px 30px;
+                        }
+                        .subText{
+                            padding-left: 30px;
+                            font-size: 18px;
+                            padding-top: 5px;
+                        }
+                .subFoot{
+                    width: 80%;
+                    height: 200px;
+                    margin: 0 auto;
+                }
+                    .footTop{
+                        width: 100%;
+                        height: 50%;
+                        display: flex;
+                        align-items: center;
+                        gap: 40px;
+                        font-weight: bold;
+                        color: #FFF;
+                        border-top: 1px solid rgba(255, 255, 255, 0.5);
+                        border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+                    }
+                    .footBot{
+                        width: 100%;
+                        height: 50%;
+                        display: flex;
+                        align-items: center;
+                        color: #CCC;
+                        font-size: 14px;
+                    }
+
+        section{
+            width: 100%;
+            height: calc(100vh - 100px);
+        }
+            .inBox{
+                width: 100%;
+                height: 93%;
+                position: relative;
+            }
+            .imgBox{
+                width: 100%;
+                height: 100%;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+                .img{
+                    width: 100%;
+                    height: 100%;
+                    position: relative;
+                    position: absolute;
+                    top: 0; left: 0;
+                    opacity: 0;
+                    pointer-events: none;
+                    transition: all 0.3s linear;
+                }
+                .img.on{
+                    opacity: 1;
+                    pointer-events: auto;
+                }
+                .img1{ background-image: url(./img/erom01.png);}
+                .img2{ background-image: url(./img/erom02.png);}
+                .img3{ background-image: url(./img/erom03.png);}
+                .img4{ background-image: url(./img/erom04.png);}
+                .img5{ background-image: url(./img/erom05.png);}
+
+                    .num{
+                        position: absolute;
+                        top: 23%; left: 160px;
+                        transform: translateY(-23%);
+                        font-size: 25px;
+                        font-weight: bold;
+                    }
+                    .white{ color: white;}
+                    .greenBox{
+                        position: absolute;
+                        top: 23%; left: 250px;
+                        transform: translateY(-28%);
+                        background-color: #004F4A;
+                        color: white;
+                        font-size: 20px;
+                        font-weight: bold;
+                        padding: 5px 13px;
+                        border-radius: 5px;
+                    }
+                    .bigText{
+                        position: absolute;
+                        top: 35%; left: 250px;
+                        transform: translateY(-35%);
+                        font-size: 37px;
+                    }
+                        .light{
+                            color: #90BD20;
+                            font-weight: bold;
+                        }
+                    .smallText{
+                        position: absolute;
+                        top: 55%; left: 250px;
+                        transform: translateY(-55%);
+                        font-size: 18px;
+                    }
+                    .greenBtn{
+                        position: absolute;
+                        top: 65%; left: 250px;
+                        transform: translateY(-65%);
+                        background-color: #108475;
+                        color: white;
+                        border: none;
+                        padding: 10px 40px;
+                        font-size: 20px;
+                        font-weight: bold;
+                        border-radius: 30px;
+                        transition: all 0.3s linear;
+                    }
+                    .greenBtn:hover{
+                        background-color: transparent;
+                        border: 1px solid white;
+                    }
+                    .img1 .greenBtn:hover{
+                        background-color: transparent;
+                        border: 1px solid white;
+                        color: black;
+                    }
+                    .img2 .greenBtn:hover{
+                        background-color: transparent;
+                        border: 1px solid white;
+                        color: black;
+                    }
+
+                /* 이미지 넘기는 버튼  */
+                .imgbtnBox{
+                    width: 200px;
+                    height: 50px;
+                    background-color: white;
+                    position: absolute;
+                    right: 200px; bottom: 0;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 80px;
+                }
+                .prewBtn{
+                    font-size: 25px;
+                }
+                .nextBtn{
+                    font-size: 25px;
+                }
+
+            /* 두번째 섹션 */
+            .iconPage{
+                width: 100%;
+                height: 90%;
+            }
+                .iconTop{
+                    width: 100%;
+                    height: 40%;
+                }
+                    .bigText2{
+                        text-align: center;
+                        padding-top: 100px;
+                        font-size: 45px;
+                        font-weight: bold;
+                        transition: all 0.3s linear;
+                        transform: scale(0.8);
+                        position: relative;
+                        z-index: 50;
+                    }
+                    .bigText2::before{
+                        content: "";
+                        display: block;
+                        width: 30px;
+                        height: 30px;
+                        border-radius: 50%;
+                        background-color: #90BD20;
+                        position: absolute;
+                        left: 540px; top: 100px;
+                        z-index: -1;
+                    }
+                    .bigText2.on{
+                        transform: scale(1);
+                    }
+                    .smallText2{
+                        text-align: center;
+                        padding-top: 40px;
+                        font-size: 20px;
+                        transition: all 0.3s linear;
+                        transform: scale(0.8);
+                    }
+                    .smallText2.on{
+                        transform: scale(1);
+                    }
+                .iconBot{
+                    width: 100%;
+                    height: 60%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                    .iconBox{
+                        width: 15%;
+                        height: 50%;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        border-right: 1px solid #c9c5c5;
+                        transition: all 0.8s linear;
+                    }
+                    .iconBox1{ transform: translateX(-50px); }
+                    .iconBox1.on{ transform: translateX(0); }
+                    .iconBox2{ transform: translateY(50px); }
+                    .iconBox2.on{ transform: translateX(0); }
+                    .iconBox3{ transform: translateY(-50px); }
+                    .iconBox3.on{ transform: translateX(0); }
+                    .iconBox4{ transform: translateY(50px); }
+                    .iconBox4.on{ transform: translateX(0); }
+                    .iconBox5{ transform: translateX(50px); }
+                    .iconBox5.on{ transform: translateX(0); }
+
+                    .iconBox:hover{ transform: translateY(-50px);}
+
+
+                    .iconBox:nth-child(5){
+                        border: none;
+                    }
+                        .iconimg{
+                            width: 30%;
+                            height: 30%;
+                            
+                        }
+                            .iconimg img{
+                                width: 100%;
+                                height: 100%;
+                            }
+                        .iconText{
+                            font-weight: bold;
+                            color:#666666 ;
+                            padding-top: 20px;
+                            font-size: 25px;
+                        }
+                
+            .sidePage{
+                width: 100%;
+                height: 60%;
+                display: flex;
+            }
+                aside, .bSide{
+                    width: 50%;
+                    height: 100%;
+                    display: flex;
+                    transition: all 1s linear;
+                }
+                .aside{transform: translateX(-50px); opacity: 0;}
+                .bSide{transform: translateX(50px); opacity: 0;}
+                .aside.on{transform: translateX(0); opacity: 1;}
+                .bSide.on{transform: translateX(0); opacity: 1;}
+
+                .border{
+                    height: 75%;
+                    margin-top: 95px;
+                    border: 1px dotted rgb(203, 203, 203);
+                }
+                    .textZone{
+                        width: 50%;
+                        height: 100%;
+                        position: relative;
+                    }
+                        .erom{
+                            position: absolute;
+                            top: 100px; left: 150px;
+                            font-size: 20px;
+                            color: #ADADAD;
+                        }
+                        .bigText3{
+                            font-size: 45px;
+                            color: #004F4A;
+                            font-weight: bold;
+                            position: absolute;
+                            top: 130px; left: 150px;
+                        }
+                        .smallText3{
+                            font-size: 20px;
+                            position: absolute;
+                            top: 200px; left: 150px;
+                        }
+                        .sideBtn{
+                            position: absolute;
+                            bottom: 50px; left: 150px;
+                        }   
+                        
+                    .imgZone{
+                        width: 50%;
+                        height: 100%;
+                    }
+                        .sideimg1, .sideimg2{
+                            display: flex;
+                            justify-content: center;
+                            margin-top: 150px;
+                        }
+                    
+                    .rightZone{
+                        width: 50%;
+                        height: 100%;
+                        display: flex;
+                        position: relative;
+                    }
+                        .erom2{
+                            position: absolute;
+                            top: 100px; right: 200px;
+                            font-size: 20px;
+                            color: #ADADAD;
+                        }
+                        .bigText32{
+                            font-size: 45px;
+                            color: #004F4A;
+                            font-weight: bold;
+                            position: absolute;
+                            top: 130px; right:200px;
+                        }
+                        .smallText32{
+                            font-size: 20px;
+                            position: absolute;
+                            top: 200px; right: 200px;
+                        }
+                        .gun{ position: absolute;  right: 0px; }
+                        .sideBtn2{
+                            position: absolute;
+                            bottom: 50px; right: 200px;
+                        }   
+            
+            .greenPage{
+                width: 100%;
+                height: 95%;
+                background-color:#004F4A ;
+                display: flex;
+            }
+                .aaSide{
+                    width: 35%;
+                    height: 100%;
+                    color: white;
+                    position: relative;
+                }
+                    .life{
+                        font-size: 35px;
+                        position: absolute;
+                        left: 200px; top: 150px;
+                        transition: all 0.8s linear;
+                        opacity: 0;
+                        transform: translateX(-50px);
+                        position: relative;
+                        z-index: 10;
+                    }
+                    .life::before{
+                        content: '';
+                        display: block;
+                        width: 30px;
+                        height: 30px;
+                        border-radius: 50%;
+                        background-color: #90BD20;
+                        position: absolute;
+                        left: -20px; top: -5px;
+                        z-index: -1;
+                    }
+                    .life.on{ opacity: 1; transform: translateX(0); }
+                    .news{
+                        font-size: 50px;
+                        font-weight: bold;
+                        position: absolute;
+                        left: 200px; top: 270px;
+                        transition: all 0.8s linear;
+                        opacity: 0;
+                        transform: translateX(-50px);
+                    }
+                    .news.on{ opacity: 1; transform: translateX(0); }
+                    .view{
+                        position: absolute;
+                        left: 200px; bottom: 300px;
+                        transition: all 0.8s linear;
+                        opacity: 0;
+                        transform: translateX(-50px);
+                    }
+                    .view.on{ opacity: 1; transform: translateX(0); }
+                .bbSide{
+                    width: 65%;
+                    height: 100%;
+                    color: white;
+                    border-collapse: collapse;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                }
+                    .threeBox{
+                        width: 70%;
+                        height: 200px;
+                        border-top: 1px solid white;
+                        display: flex;
+                        padding-left: 50px;
+                        align-items: center;
+                        transition: all 0.8s linear;
+                        opacity: 0;
+                        transform: translateX(50px);
+                    }
+                    .threeBox.on{ opacity: 1; transform: translateX(0);}
+                    .threeBox:nth-child(2){ transition-delay: 0.4s;}
+                        .threeBox:nth-child(3) {
+                            border-bottom: 1px solid white;
+                            transition-delay: 0.8s;
+                        }
+                        .bigText4{
+                            font-size: 25px;
+                            font-weight: bold;
+                        }
+                        .smallText4{
+                            margin-top:20px;
+                            color: #ccc;
+                        }
+            .companyPage{
+                width: 100%;
+                height: 100%;
+            }
+                .group{
+                    width: 100%;
+                    height: 100px;
+                    font-size: 30px;
+                    font-weight: bold;
+                    color: #666666;
+                    padding-left: 200px;
+                    padding-top: 20px;
+                    transition: all 0.8s linear;
+                    transform: translateX(50px);
+                    opacity: 0;
+                    position: relative;
+                }
+                .group::before{
+                    content: '';
+                    display: block;
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 50%;
+                    background-color: #90BD20;
+                    position: absolute;
+                    top: 15px; left: 185px;
+                    z-index: -1;
+                }
+                .group.on{ transform: translateX(0); opacity: 1;}
+                .company{
+                    font-size: 50px;
+                    font-weight: bold;
+                    padding-left: 200px;
+                    padding-top: 20px;
+                    transition: all 0.8s linear;
+                    transform: translateX(50px);
+                    opacity: 0;
+                }
+                .company.on{ transform: translateX(0); opacity: 1; }
+                .fourimgBox{
+                    width: 80%;
+                    height: 550px;
+                    margin: 50px 0 0 200px;
+                    display: flex;
+                }
+                    .fourimg1Box{ width: 25%; height: 100%;}
+
+                        .fourimg{
+                            width: 100%;
+                            overflow: hidden;
+                            height: 100%;
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: cover;
+                            position: relative;
+                            transition: all 0.8s linear;
+                            transform-style: preserve-3d;
+                            transform: rotateY(180deg);
+                        }
+                        .fourimg.on{transform: rotateY(0deg);  }
+                        .fourimg1{ background-image: url(./img/erom08.png); }
+                        .fourimg2{ background-image: url(./img/erom09.png); }
+                        .fourimg3{ background-image: url(./img/erom10.png); }
+                        .fourimg4{ background-image: url(./img/erom11.png);}
+
+                        .fourimg1.active{ background-image: url(./img/erom08over.png); transform: translateY(-30px);}
+                        .fourimg2.active{ background-image: url(./img/erom09over.png); transform: translateY(-30px);}
+                        .fourimg3.active{ background-image: url(./img/erom10over.png); transform: translateY(-30px);}
+                        .fourimg4.active{ background-image: url(./img/erom11over.png); transform: translateY(-30px);}
+
+                            .fourimgText{
+                                position: absolute;
+                                left: 50px; bottom: 50px;
+                                font-size: 40px;
+                                font-weight: bold;
+                                color: #fff;
+                            }
+            
+        footer{
+            width: 100%;
+            height: 250px;
+            background-color: black;
+            margin-top: 100px;
+        }
+            .gainBox{
+                width: 80%;
+                height: 100px;
+                color: #fff;
+                margin: 0 auto;
+                display: flex;
+                gap: 40px;
+                line-height: 100px;
+                font-weight: bold;
+                border-bottom: 1px solid #CCC;
+            }
+            .addBox{
+                width: 80%;
+                height: 70px;
+                color: #CCC;
+                margin: 0 auto;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                margin-top: 40px;
+                font-size: 14px;
+            }
+
+
+    </style>
+</head>
+<body>
+    
+
+    <!-- 서브메뉴 -->
+    <div class="submenuBox">
+        <div class="subNav">
+            <div class="logo2">
+                <img src="./img/eromlogo02.png" alt="logo2" />
+            </div>
+            <div class="xBtn" onclick="xBtn()"><i class="fa-solid fa-xmark"></i></div>
+        </div>
+        <div class="subSection">
+            <div class="subinBox">
+                <div class="sub6Box">
+                    <div class="h">이롬그룹</div>
+                    <div class="subText">이롬그룹</div>
+                    <div class="subText">황성주박사</div>
+                    <div class="subText">브랜드 아이덴티티</div>
+                    <div class="subText">Contact US</div>
+                </div>
+                <div class="sub6Box">
+                    <div class="h">사업분야</div>
+                    <div class="subText">BUSINESS</div>
+                    <div class="subText">GLOBAL</div>
+                    <div class="subText">BIO&MEDICAL</div>
+                    <div class="subText">HUMAN</div>
+                    <div class="subText">EDUCATION</div>
+                </div>
+                <div class="sub6Box">
+                    <div class="h">이롬</div>
+                    <div class="subText">두유</div>
+                    <div class="subText">새식.영양식</div>
+                    <div class="subText">주스.음료</div>
+                    <div class="subText">건강.영양</div>
+                </div>
+                <div class="sub6Box">
+                    <div class="h">이롬헬스케어</div>
+                    <div class="subText">생식&면역</div>
+                    <div class="subText">두유.음료</div>
+                    <div class="subText">건강기능/지향식품</div>
+                    <div class="subText">뷰타&리빙</div>
+                    <div class="subText">의료기기</div>
+                </div>
+                <div class="sub6Box">
+                    <div class="h">뉴스&홍보</div>
+                    <div class="subText">이롬소식</div>
+                    <div class="subText">미디어센터</div>
+                </div>
+                <div class="sub6Box">
+                    <div class="h">이롬人</div>
+                    <div class="subText">이롬人</div>
+                </div>
+            </div>
+            <div class="subFoot">
+                <div class="footTop">
+                    <div>개인정보처리방침</div>
+                    <div>이용약관</div>
+                </div>
+                <div class="footBot">
+                    <div class="footText3">ADDRESS: 서울특별시   |    TEL: 080- 000 - 1111    |    EMAIL: webmster@erom.co.kr</div>
+                </div>
+        </div>
+        </div>
+    </div>
+
+    <nav>
+        <div class="logo">
+            <img src="./img/eromlogo.png" alt="로고" />
+        </div>
+        <div class="menus">
+            <div>이롬그룹</div>
+            <div>사업분야</div>
+            <div>이롬</div>
+            <div>이롬헬스케어</div>
+            <div>뉴스&홍보</div>
+            <div>이롬人</div>
+        </div>
+        <div class="submenuIcon" onclick="submenu()"><i class="fa-solid fa-bars"></i></div>
+    </nav>
+
+    <section id="sec1">
+        <div class="inBox">
+            <div class="imgBox">
+                <div class="img img1 on">
+                    <div class="num">01</div>
+                    <div class="greenBox">이롬</div>
+                    <div class="bigText">먹거리에서 생활습관까지<br><span class="light">건강한 개인과 사회에 기여</span>하겠습니다.</div>
+                    <div class="smallText">이롬은 지나칠 수 있는 자연에서 인간에게 유익한 힘을 발견하는 지혜,<br>과학의 힘으로 자연을 담아 건강에 대한 새로운 해답을 제공해 나가겠습니다.</div>
+                    <button class="greenBtn">자세히 보기</button>
+                </div>
+                <div class="img img2">
+                    <div class="num">02</div>
+                    <div class="greenBox">이롬헬스케어</div>
+                    <div class="bigText">삶의 가치를 전달할 수 있도록<br><span class="light">건강 라이프 스타일을 연구</span>합니다.</div>
+                    <div class="smallText">이롬헬스케어는 고객의 삶 속에 깊이 들어가 먹을거리를 시작으로<br>생활전반의 라이프 스타일을 제공하여, 행복하고 건강한 삶을 선물하고 있습니다.</div>
+                    <button class="greenBtn">자세히 보기</button>
+                </div>
+                <div class="img img3">
+                    <div class="num white">03</div>
+                    <div class="greenBox">사랑의병원</div>
+                    <div class="bigText white"><span class="light">면역과 의학적 암 예방</span>까지<br>협진시스템을 운영하고 있습니다.</div>
+                    <div class="smallText white">사랑의병원은 전문 의료진과 첨단 의료장비를 기반으로 협진 시스템을 운영,<br>질병예방과 재발방지 등 진단항목 중심의 건강검진프로그램 운영하고 있습니다.</div>
+                    <button class="greenBtn">자세히 보기</button>
+                </div>
+                <div class="img img4">
+                    <div class="num white">04</div>
+                    <div class="greenBox">국제사랑의봉사단</div>
+                    <div class="bigText white"><span class="light">'세계는 나의 교실','최후의 혁명은 사랑'</span><br>고통받는 이웃들을 섬기고 있습니다.</div>
+                    <div class="smallText white">국제사랑의봉사단은 전 세계의 고통받는 이웃들을 사랑으로 섬기고<br>전인적 필요를 채워 주고자 전 세계 40여개국에서 활동하고 있습니다.</div>
+                    <button class="greenBtn">자세히 보기</button>
+                </div>
+                <div class="img img5">
+                    <div class="num white">05</div>
+                    <div class="greenBox">꿈의학교</div>
+                    <div class="bigText white"><span class="light">"집을 팔아서 스승을 사라"</span><br>아이들의 더 큰 미래를 생각합니다.</div>
+                    <div class="smallText white">꿈의학교에서는 우리 아이들의 올바른 세계관과 비전, 실력을 겸비하여<br>언제 어디서나 마음껏 꿈을 펼치고 성장할 수 있도록 사랑으로 양육하고 있습니다.</div>
+                    <button class="greenBtn">자세히 보기</button>
+                </div>
+            </div>
+            <div class="imgbtnBox">
+                <div class="prewBtn" onclick="prew()"><i class="fa-solid fa-left-long"></i></div>
+                <div class="nextBtn" onclick="next()"><i class="fa-solid fa-right-long"></i></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sec2">
+        <div class="iconPage">
+            <div class="iconTop">
+                <div class="bigText2">위대함을 향한 이롬의 끊임없는 도전과 혁신</div>
+                <div class="smallText2">끊임없는 도전과 혁신으로 최적화된 제품을 개발, 유통하여<br><strong>건강한 개인과 건강한 사회에 기여하는 라이프케어 컴퍼니</strong></div>
+            </div>
+            <div class="iconBot">
+                <div class="iconBox iconBox1">
+                    <div class="iconimg"><img src="http://www.eromgroup.com/theme/erom/img/section01_icon01.png" alt="item1" ></div>
+                    <div class="iconText">BUSINESS</div>
+                </div>
+                <div class="iconBox iconBox2">
+                    <div class="iconimg"><img src="http://www.eromgroup.com/theme/erom/img/section01_icon02.png" alt="item2"></div>
+                    <div class="iconText">GLOBAL</div>
+                </div>
+                <div class="iconBox iconBox3">
+                    <div class="iconimg"><img src="http://www.eromgroup.com/theme/erom/img/section01_icon03.png" alt="item3" ></div>
+                    <div class="iconText">BIO&MEDICAL</div>
+                </div>
+                <div class="iconBox iconBox4">
+                    <div class="iconimg"><img src="http://www.eromgroup.com/theme/erom/img/section01_icon04.png" alt="item4" ></div>
+                    <div class="iconText">HUMAN</div>
+                </div>
+                <div class="iconBox iconBox5">
+                    <div class="iconimg"><img src="http://www.eromgroup.com/theme/erom/img/section01_icon05.png" alt="item5" ></div>
+                    <div class="iconText">EDUCATION</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="sec3">
+        <div class="sidePage">
+            <aside class="aside">
+                <div class="textZone textZone1">
+                    <div class="erom">e r o m</div>
+                    <div class="bigText3">이롬</div>
+                    <div class="smallText3">건강한 개인과 건강한 사회에 기여하는 <br>토탈 라이프케어 컴퍼니</div>
+                    <div class="sideBtn">자세히 보기 <i class="fa-solid fa-arrow-right"></i></div>
+                </div>
+                <div class="imgZone">
+                    <div class="sideimg1"><img src="./img/erom06.png" alt="img6" /></div>
+                </div>
+                <div class="border"></div>
+            </aside>
+            <div class="bSide">
+                <div class="imgZone">
+                    <div class="sideimg2"><img src="./img/erom07.png" alt="img7" /></div>
+                </div>
+                <div class="rightZone">
+                    <div class="erom2">e r o m H e a l t h c a r e</div>
+                    <div class="bigText32">이롬헬스케어</div>
+                    <div class="smallText32"><span class="gun">건강한 라이프스타일,</span><br>이롬헬스케어가 함께합니다.</div>
+                    <div class="sideBtn2">자세히 보기<i class="fa-solid fa-arrow-right"></i></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="sec4">
+        <div class="greenPage">
+            <div class="aaSide">
+                <div class="life">life care company,<br>erom group</div>
+                <div class="news">NEWS</div>
+                <div class="view">VIEW MORE <i class="fa-solid fa-arrow-right"></i></div>
+            </div>
+            <div class="bbSide">
+                <div class="threeBox">
+                    <div class="text4Box">
+                        <div class="bigText4">㈜이롬, '미네랄워터 리프레쉬' 2025 미스코리아 공식 후원</div>
+                        <div class="smallText4">25.08.11</div>
+                    </div>
+                </div>
+                <div class="threeBox">
+                    <div class="text4Box">
+                        <div class="bigText4">의왕시 첫 종합병원, 응급의료센터 포함한 스마트병원으로 조성</div>
+                        <div class="smallText4">25.06.13</div>
+                    </div>
+                </div>
+                <div class="threeBox">
+                    <div class="text4Box">
+                        <div class="bigText4">㈜이롬, '미네랄워터 리프레쉬'로 2년 연속 OBS전국 배드민턴 대회 공식 협찬</div>
+                        <div class="smallText4">25.06.13</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="sec5">
+        <div class="companyPage">
+            <div class="group">이롬그룹은 과학의 힘으로 자연을 담아<br>건강에 대한 새로운 해답을 제공해 나가겠습니다</div>
+            <div class="company">erom Company About</div>
+            <div class="fourimgBox">
+                <div class="fourimg1Box">
+                    <div class="fourimg fourimg1">
+                        <div class="fourimgText">이롬그룹<br>소개</div>
+                    </div>
+                </div>
+                <div class="fourimg1Box">
+                    <div class="fourimg fourimg2">
+                        <div class="fourimgText">황성주<br>박사</div>
+                    </div>
+                </div>
+                <div class="fourimg1Box">
+                    <div class="fourimg fourimg3">
+                        <div class="fourimgText">브랜드<br>아이덴티티</div>
+                    </div>
+                </div>
+                <div class="fourimg1Box">
+                    <div class="fourimg fourimg4">
+                        <div class="fourimgText">contact<br>US</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="gainBox">
+            <div>개인정보처리방침</div>
+            <div>이용약관</div>
+        </div>
+        <div class="addBox">
+            <div>ADDRESS: 서울특별시   |    TEL: 080- 000 - 1111    |    EMAIL: webmster@erom.co.kr</div>
+            <div>COPYRIGHT &copy; EROM <strong>GROUP</strong> ALL RIGHTS RESERVED.</div>
+        </div>
+    </footer>
+
+    <script>
+        let submenuBox = document.querySelector('.submenuBox')
+        function submenu(){
+            submenuBox.classList.add("on")
+        }
+        function xBtn(){
+            submenuBox.classList.remove("on")
+        }
+
+        let imgs = document.querySelectorAll(".img")
+        let count = 0;
+
+        function show(){
+            imgs.forEach( (item)=>{
+                item.classList.remove('on')
+            })
+            imgs[count].classList.add("on")
+        }
+
+        let set = setInterval( function(){
+            count++;
+            if( count > imgs.length -1){
+                count = 0; 
+            }
+            show()
+        },5000)
+
+        function prew(){
+            count--
+            if( count < 0 ){
+                count = imgs.length -1;
+            }
+            show()
+            clearInterval(set)
+        }
+        function next(){
+            count++
+            if( count > imgs.length-1 ){
+                count=0;
+            }
+            show()
+            clearInterval(set)
+        }
+
+        let sec2 = document.getElementById('sec2')
+        let sec3 = document.getElementById('sec3')
+        let sec4 = document.getElementById('sec4')
+        let sec5 = document.getElementById('sec5')
+        let sec2Top = sec2.offsetTop
+        let sec3Top = sec3.offsetTop
+        let sec4Top = sec4.offsetTop
+        let sec5Top = sec5.offsetTop
+
+        window.addEventListener("scroll", function(){
+            let sy = window.scrollY
+            if( sy >= sec2Top - 500 && sy < sec3Top ){
+                document.querySelector('.bigText2').classList.add('on')
+                document.querySelector('.smallText2').classList.add('on')
+                let iconBoxs = document.querySelectorAll('.iconBox')
+                iconBoxs.forEach( (item)=>{
+                    item.classList.add('on')
+                })
+            }else{
+                document.querySelector('.bigText2').classList.remove('on')
+                document.querySelector('.smallText2').classList.remove('on')
+                let iconBoxs = document.querySelectorAll('.iconBox')
+                iconBoxs.forEach( (item)=>{
+                    item.classList.remove('on')
+                })
+            }
+        })
+        
+        window.addEventListener("scroll", function(){
+            let sy = window.scrollY
+            if( sy >=sec3Top -500 && sy < sec4Top){
+                document.querySelector('.aside').classList.add('on')
+                document.querySelector('.bSide').classList.add('on')
+            }else{
+                document.querySelector('.aside').classList.remove('on')
+                document.querySelector('.bSide').classList.remove('on')
+            }
+        })
+
+        window.addEventListener("scroll",function(){
+            let sy = window.scrollY
+            if( sy >= sec4Top -500 && sy< sec5Top){
+                document.querySelector('.life').classList.add('on')
+                document.querySelector('.news').classList.add('on')
+                document.querySelector('.view').classList.add('on')
+                let threeBoxs = document.querySelectorAll('.threeBox')
+                threeBoxs.forEach( (item)=>{
+                    item.classList.add('on')
+                })
+            }else{
+                document.querySelector('.life').classList.remove('on')
+                document.querySelector('.news').classList.remove('on')
+                document.querySelector('.view').classList.remove('on')
+                let threeBoxs = document.querySelectorAll('.threeBox')
+                threeBoxs.forEach( (item)=>{
+                    item.classList.remove('on')
+                })
+            }
+        })
+
+        window.addEventListener("scroll", function(){
+            let sy = window.scrollY
+            if( sy >= sec5Top -500 ){
+                document.querySelector('.group').classList.add('on')
+                document.querySelector('.company').classList.add('on')
+                let fourimgs = document.querySelectorAll('.fourimg')
+                fourimgs.forEach( (item)=>{
+                    item.classList.add('on')
+                })
+            }else{
+                document.querySelector('.group').classList.remove('on')
+                document.querySelector('.company').classList.remove('on')
+                let fourimgs = document.querySelectorAll('.fourimg')
+                fourimgs.forEach( (item)=>{
+                    item.classList.remove('on')
+                })
+            }  
+        })
+
+        let fourimgs = document.querySelectorAll('.fourimg')
+        fourimgs.forEach( (item)=>{
+            item.classList.remove('active')
+            item.addEventListener("mouseenter", ()=>{
+                item.classList.add('active')
+            })
+            item.addEventListener("mouseleave", ()=>{
+                item.classList.remove('active')
+            })
+        })
+    </script>
+</body>
+</html>
